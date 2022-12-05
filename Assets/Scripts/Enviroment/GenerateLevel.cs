@@ -27,6 +27,4 @@ public class GenerateLevel : MonoBehaviour
         yield return new WaitForSeconds(2);
         creatingSection = false;
     }
-
-
 }
