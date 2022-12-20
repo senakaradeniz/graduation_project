@@ -2,16 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMove : MonoBehaviour
+public class PlayerLeftRightMove : MonoBehaviour
 {
-    public float speed = 3;
-    public float leftRightSpeed = 4;
+    //private Vector3 move;
+    public float speed = 5;
+    public float leftRightSpeed = 10;
 
+    private CharacterController characterController;
 
     private void Update()
     {
 
-        // Move the object forward along its z axis 1 unit/second.
         transform.Translate(Vector3.forward * Time.deltaTime * speed, Space.World);
       
         //karakterin a ve left arrow kullanarak sol tarafa gitmesini saðlar
@@ -30,7 +31,6 @@ public class PlayerMove : MonoBehaviour
                 transform.Translate(Vector3.left * Time.deltaTime * leftRightSpeed * -1);
             }
         }
-
 
     }
 
