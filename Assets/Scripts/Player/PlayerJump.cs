@@ -5,12 +5,12 @@ using UnityEngine;
 public class PlayerJump : MonoBehaviour
 {
     private Vector3 move;
-    public float speed = 5;
+    public float jumpspeed = 5;
     public float jumpForce, gravity, verticalVelocity;
 
     private CharacterController charController;
     
-    private void Awake()
+    void Awake()
     {
         charController = GetComponent<CharacterController>();
     }
@@ -39,7 +39,7 @@ public class PlayerJump : MonoBehaviour
 
         move.y = verticalVelocity;
         move.Normalize();
-        move *= speed;
+        move *= jumpspeed;
         charController.Move(move * Time.deltaTime);
         
     }

@@ -4,20 +4,19 @@ using UnityEngine;
 
 public class PlayerLeftRightMove : MonoBehaviour
 {
-    //private Vector3 move;
     public float speed = 5;
-    public float leftRightSpeed = 10;
+    public float leftRightSpeed = 5;
 
-    private CharacterController characterController;
 
     private void Update()
     {
-
+        // (hangi yöne gideceði* ne kadar hýzlý gideceði, )
         transform.Translate(Vector3.forward * Time.deltaTime * speed, Space.World);
       
         //karakterin a ve left arrow kullanarak sol tarafa gitmesini saðlar
         if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
         {
+            //if our position greater than left side then we can move left
             if (this.gameObject.transform.position.x > LevelBoundary.leftSide)
             {
                 transform.Translate(Vector3.left * Time.deltaTime * leftRightSpeed);
