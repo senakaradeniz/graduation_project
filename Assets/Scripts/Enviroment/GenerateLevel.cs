@@ -2,18 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-//section larý rastgele bir þekilde create eder
+//section lari rastgele bir sekilde create eder
 public class GenerateLevel : MonoBehaviour
 {
     public GameObject[] section;
-    //bölümün oluþturulacaðý ilk pozisyon deðeri
+    //bolumun olusturulacagi ilk pozisyon degeri
     public int zPos = 40;
     public bool creatingSection = false;
     public int secNum;
 
     void Update()
     {
-        //ayný Coroutine in hep üst üste gelmemesini saðlar
+        //ayni Coroutine in hep ust uste gelmemesini saglar
         if (creatingSection == false)
         {
             creatingSection = true;
@@ -25,11 +25,11 @@ public class GenerateLevel : MonoBehaviour
     IEnumerator GenerateSection()
     {
         secNum = Random.Range(0, 3);
-        //seçilen sayýya göre section baþlatýlmalý
+        //secilen sayiya gore section baslatilmali
         Instantiate(section[secNum], new Vector3((float)-9.170316, (float)-6.837324, zPos), Quaternion.identity);
         zPos += 40;
-        //her þeyi yeniden etkinleþtirmek için
-        yield return new WaitForSeconds(2);
+        //her seyi yeniden etkinlestirmek icin
+        yield return new WaitForSeconds(4.5f);
         creatingSection = false;
     }
 }

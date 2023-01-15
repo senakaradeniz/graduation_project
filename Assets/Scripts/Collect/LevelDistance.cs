@@ -13,6 +13,7 @@ public class LevelDistance : MonoBehaviour
 
     void Update()
     {
+        //mesafe eklenmiyorsa belirli aralýklýkla metre eklenmesi gerektiði
         if (addingDis == false)
         {
             addingDis = true;
