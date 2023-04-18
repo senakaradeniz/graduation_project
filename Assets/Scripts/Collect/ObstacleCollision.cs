@@ -22,5 +22,7 @@ public class ObstacleCollision : MonoBehaviour
         levelControl.GetComponent<GenerateLevel>().enabled = false;
 
         charModel.GetComponent<Animator>().Play("Stumble Backwards");
+
+        levelControl.GetComponent<EndRunSequence>().enabled = true;
     }
 }

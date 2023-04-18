@@ -6,10 +6,12 @@ using UnityEngine.UI;
 public class CollectableControl : MonoBehaviour
 {
     public static int coinCount;
-    public GameObject countDisplay;
+    public GameObject coinCountDisplay;
+    public GameObject endCountDisplay;
 
     void Update()
     {
-        countDisplay.GetComponent<Text>().text = "" + coinCount;
+        coinCountDisplay.GetComponent<Text>().text = "" + coinCount;
+        endCountDisplay.GetComponent<Text>().text = "" + coinCount;
     }
 }
