@@ -61,7 +61,7 @@ public class CharControl : MonoBehaviour
     {
         if (characterController.isGrounded)
         {
-            if (Input.GetButton("Jump") || Input.GetKey(KeyCode.UpArrow))
+            if (Input.GetButton("Jump") || Input.GetKey(KeyCode.UpArrow) || (Input.GetKey(KeyCode.W)))
             {
                 move.y = jumpHeight / 10;
             }

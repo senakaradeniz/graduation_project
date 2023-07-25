@@ -6,6 +6,7 @@ using UnityEngine;
 public class GenerateLevel : MonoBehaviour
 {
     public GameObject[] section;
+    public GameObject endSection;
     //bolumun olusturulacagi ilk pozisyon degeri
     public int zPos = 40;
     public bool creatingSection = false;
@@ -18,6 +19,13 @@ public class GenerateLevel : MonoBehaviour
         {
             creatingSection = true;
             StartCoroutine(GenerateSection());
+            if (zPos==400)
+            {
+                StartCoroutine(GenerateSection2());
+                StopAllCoroutines();
+
+
+            }
         }
     }
 
@@ -29,7 +37,16 @@ public class GenerateLevel : MonoBehaviour
         Instantiate(section[secNum], new Vector3((float)-9.170316, (float)-6.837324, zPos), Quaternion.identity);
         zPos += 40;
         //her seyi yeniden etkinlestirmek icin
-        yield return new WaitForSeconds(4.5f);
+        yield return new WaitForSeconds(4f);
         creatingSection = false;
+    }
+    IEnumerator GenerateSection2()
+    {
+        //secilen sayiya gore section baslatilmali
+        Instantiate(endSection, new Vector3((float)-9.170316, (float)-6.837324, zPos), Quaternion.identity);
+        zPos += 40;
+        //her seyi yeniden etkinlestirmek icin
+        yield return new WaitForSeconds(4f);
+        StopCoroutine(GenerateSection());
     }
 }
